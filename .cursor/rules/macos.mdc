@@ -1,0 +1,15 @@
+---
+description: Команды и инструкции только для macOS (iMac)
+alwaysApply: true
+---
+
+# macOS (iMac)
+
+Пользователь работает на iMac. Всегда:
+
+- Пиши команды терминала для macOS (zsh/bash)
+- Используй пути в формате macOS (`~/`, `/Users/...`)
+- Активация venv: `source venv/bin/activate`
+- Копирование файлов: `cp`, не `copy`
+- Не предлагай `run.bat`, `venv\Scripts\activate` и другие Windows-команды
+- Структуру проекта показывай в нейтральном виде, без Windows-специфики
