@@ -1,0 +1,22 @@
+# Скопируйте этот файл в .env и заполните значения:
+#   cp env_example.txt .env
+
+# Токен Telegram-бота (от @BotFather)
+BOT_TOKEN=your_telegram_bot_token_here
+
+# Провайдер API: openai | proxyapi | genapi
+API_PROVIDER=openai
+
+# --- OpenAI (прямой доступ) ---
+OPENAI_API_KEY=your_openai_api_key_here
+
+# --- ProxyAPI (https://proxyapi.ru) ---
+PROXYAPI_KEY=your_proxyapi_key_here
+# PROXYAPI_BASE_URL=https://api.proxyapi.ru/openai/v1
+
+# --- GenAPI (https://gen-api.ru) ---
+GENAPI_KEY=your_genapi_key_here
+# GENAPI_BASE_URL=https://proxy.gen-api.ru/v1
+
+# Модель (общая для всех провайдеров)
+# OPENAI_MODEL=gpt-4o-mini

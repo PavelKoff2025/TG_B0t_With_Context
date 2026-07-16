@@ -2,18 +2,29 @@ import logging
 
 from openai import OpenAI
 
-from config import MAX_TOKENS, OPENAI_API_KEY, OPENAI_MODEL, TEMPERATURE
+from config import (
+  MAX_TOKENS,
+  OPENAI_MODEL,
+  PROXYAPI_BASE_URL,
+  PROXYAPI_KEY,
+  TEMPERATURE,
+)
 
 logger = logging.getLogger(__name__)
 
 
-class APIClient:
+class ProxyAPIClient:
+  """Клиент ProxyAPI (OpenAI-совместимый шлюз)."""
+
   def __init__(self) -> None:
-    self._client = OpenAI(api_key=OPENAI_API_KEY)
+    if not PROXYAPI_KEY:
+      raise ValueError("PROXYAPI_KEY не задан в .env")
+    self._client = OpenAI(api_key=PROXYAPI_KEY, base_url=PROXYAPI_BASE_URL)
 
   def get_reply(self, messages: list[dict]) -> str:
     logger.info(
-      "Запрос к API: model=%s, temperature=%s, max_tokens=%s, messages_count=%s",
+      "proxyapi: base_url=%s, model=%s, temperature=%s, max_tokens=%s, messages_count=%s",
+      PROXYAPI_BASE_URL,
       OPENAI_MODEL,
       TEMPERATURE,
       MAX_TOKENS,
@@ -37,8 +48,8 @@ class APIClient:
           usage.completion_tokens,
           usage.total_tokens,
         )
-      logger.info("Ответ API получен, длина=%s", len(reply))
+      logger.info("Ответ proxyapi получен, длина=%s", len(reply))
       return reply
     except Exception as error:
-      logger.exception("Ошибка API: %s", error)
+      logger.exception("Ошибка proxyapi: %s", error)
       raise
