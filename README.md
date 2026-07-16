@@ -1,7 +1,10 @@
 # TG Bot With Context
 
-Telegram-бот с поддержкой контекста диалога на базе aiogram.
-Поддерживает три провайдера API: OpenAI, ProxyAPI и GenAPI.
+Telegram-бот на **aiogram** с памятью диалога и работой через OpenAI / ProxyAPI / GenAPI.
+
+В проекте также выполнено практическое задание по **управляемым промптам** (6 шагов): мини-стилист по погоде → стабильный JSON-ответ → итерация качества (роль + few-shot) → пользовательский артефакт (`docs/stylist_guide.md`, `stylist_show.py`).
+
+Промпты хранятся в `prompts.json`, диалог с контекстом — в `openai_direct.py` и в Telegram-боте.
 
 ## Структура проекта
 
