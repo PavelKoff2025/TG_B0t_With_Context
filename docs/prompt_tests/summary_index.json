@@ -1,0 +1,104 @@
+[
+  {
+    "prompt_id": "summary",
+    "prompt_name": "Резюме текста",
+    "prompt_file": "01_summary_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.2,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 951,
+      "completion_tokens": 241,
+      "total_tokens": 1192
+    },
+    "response_length_chars": 982,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": false
+  },
+  {
+    "prompt_id": "summary",
+    "prompt_name": "Резюме текста",
+    "prompt_file": "01_summary_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.8,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 951,
+      "completion_tokens": 216,
+      "total_tokens": 1167
+    },
+    "response_length_chars": 849,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": false
+  },
+  {
+    "prompt_id": "code_structure",
+    "prompt_name": "Генерация структуры кода",
+    "prompt_file": "02_code_structure_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.2,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 999,
+      "completion_tokens": 1171,
+      "total_tokens": 2170
+    },
+    "response_length_chars": 3878,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": true
+  },
+  {
+    "prompt_id": "code_structure",
+    "prompt_name": "Генерация структуры кода",
+    "prompt_file": "02_code_structure_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.8,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 999,
+      "completion_tokens": 941,
+      "total_tokens": 1940
+    },
+    "response_length_chars": 3207,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": true
+  },
+  {
+    "prompt_id": "task_planning",
+    "prompt_name": "Планирование задач",
+    "prompt_file": "03_task_planning_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.2,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 1204,
+      "completion_tokens": 785,
+      "total_tokens": 1989
+    },
+    "response_length_chars": 2753,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": false
+  },
+  {
+    "prompt_id": "task_planning",
+    "prompt_name": "Планирование задач",
+    "prompt_file": "03_task_planning_prompt.json",
+    "model": "gpt-4o-mini-2024-07-18",
+    "temperature": 0.8,
+    "max_tokens": 2000,
+    "usage": {
+      "prompt_tokens": 1204,
+      "completion_tokens": 785,
+      "total_tokens": 1989
+    },
+    "response_length_chars": 2919,
+    "is_markdown": true,
+    "is_json": false,
+    "has_tree": false
+  }
+]
