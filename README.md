@@ -1,27 +1,49 @@
 # TG Bot With Context
 
-Telegram-бот на **aiogram** с памятью диалога и работой через OpenAI / ProxyAPI / GenAPI.
+Telegram AI-ассистент на **aiogram** с памятью диалога для клиентских сценариев. Подключает OpenAI, ProxyAPI или GenAPI — можно выбрать провайдера под бюджет и доступность.
 
-В проекте также выполнено практическое задание по **управляемым промптам** (6 шагов): мини-стилист по погоде → стабильный JSON-ответ → итерация качества (роль + few-shot) → пользовательский артефакт (`docs/stylist_guide.md`, `stylist_show.py`).
+**Что уже готово для бизнеса:**
+- диалог с контекстом (история в памяти, `/clear`, `/stats`);
+- управляемые промпты под типовые задачи: резюме текста, структура кода, план работ;
+- A/B-сравнение `temperature` (0.2 vs 0.8) с отчётом для куратора/заказчика;
+- отдельный мини-кейс «стилист» (JSON-артефакт + few-shot).
 
-Промпты хранятся в `prompts.json`, диалог с контекстом — в `openai_direct.py` и в Telegram-боте.
+| Артефакт | Путь |
+|----------|------|
+| Отчёт по промптам урока | [`docs/prompts_testing_report.md`](docs/prompts_testing_report.md) |
+| Примеры ответов | [`docs/prompt_tests/`](docs/prompt_tests/) |
+| Промпты урока | [`prompts/`](prompts/) |
+| Гайд стилиста | [`docs/stylist_guide.md`](docs/stylist_guide.md) |
+
+Диалоговые промпты бота — в `prompts.json`; интерактивный прогон урока — `prompt_chat.py`.
 
 ## Структура проекта
 
-```
+```text
 TG_Bot_With_Contecst/
-├── venv/                 # Виртуальное окружение Python
-├── .env                  # Переменные окружения (не коммитить)
-├── env_example.txt       # Пример .env
-├── bot.py                # Точка входа, обработчики Telegram
-├── config.py             # Загрузка настроек из .env и prompts.json
-├── context_manager.py    # Хранение истории сообщений (dict в памяти)
-├── openai_direct.py      # Прямой клиент OpenAI
-├── proxyapi_client.py    # Клиент ProxyAPI
-├── genapi_client.py      # Клиент GenAPI
-├── prompts.json          # Системные промпты
-├── requirements.txt      # Зависимости
-└── run.sh                # Скрипт запуска (macOS)
+├── venv/                      # Виртуальное окружение Python
+├── .env                       # Секреты (не коммитить)
+├── env_example.txt            # Пример .env
+├── bot.py                     # Telegram-бот, обработчики
+├── config.py                  # Настройки из .env и prompts.json
+├── context_manager.py         # История диалога (dict в памяти)
+├── openai_direct.py           # Клиент OpenAI
+├── proxyapi_client.py         # Клиент ProxyAPI
+├── genapi_client.py           # Клиент GenAPI
+├── prompts.json               # Системные промпты бота
+├── prompts/                   # Промпты урока (Markdown-формат)
+│   ├── 01_summary_prompt.json
+│   ├── 02_code_structure_prompt.json
+│   └── 03_task_planning_prompt.json
+├── prompt_chat.py             # Интерактивный тест промптов
+├── run_temperature_tests.py   # Сравнение temperature 0.2 / 0.8
+├── stylist_show.py            # Демо артефакта «стилист»
+├── docs/
+│   ├── prompts_testing_report.md   # Отчёт для куратора
+│   ├── prompt_tests/               # Ответы при разных temperature
+│   └── stylist_guide.md
+├── requirements.txt
+└── run.sh                     # Запуск на macOS
 ```
 
 ## Установка (macOS)
