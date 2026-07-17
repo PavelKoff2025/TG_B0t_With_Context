@@ -70,10 +70,16 @@ def build_messages(prompt: dict, user_input: str) -> list[dict]:
     )
     template = prompt["format"].get("template")
     if template:
+      fence_note = (
+        "Дерево директорий обязательно оборачивай в блок ```text ... ```, "
+        "чтобы оно отображалось столбиком на GitHub."
+        if prompt.get("prompt_id") == "code_structure"
+        else "Не используй JSON. Не оборачивай весь ответ в ```json."
+      )
       parts.append(
         "Обязательный шаблон ответа (соблюдай строго):\n"
         f"{template}\n\n"
-        "Не используй JSON. Не оборачивай ответ в ```."
+        f"{fence_note}"
       )
   parts.append(f"Входные данные:\n{user_input}")
   return [
